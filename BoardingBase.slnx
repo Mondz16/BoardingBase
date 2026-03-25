@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="BoardingBase.Api/BoardingBase.Api.csproj" />
+  <Project Path="BoardingBase.Application/BoardingBase.Application.csproj" />
+  <Project Path="BoardingBase.Domain/BoardingBase.Domain.csproj" />
+  <Project Path="BoardingBase.Infrastructure/BoardingBase.Infrastructure.csproj" />
+</Solution>
