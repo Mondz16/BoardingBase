@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <Folder Include="Enpoints/" />
+    <Folder Include="Utils\" />
   </ItemGroup>
 
 </Project>

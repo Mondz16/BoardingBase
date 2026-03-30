@@ -103,51 +103,5 @@ app.UseCors("AllowFrontend");
 
 app.MapHealthChecks("/health");
 app.MapAuthEndpoints();
-app.MapGet("/test", () =>
-{
-    return Results.Ok(new
-    {
-        message = "Testing!"
-    });
-});
-
-app.MapGet("/secure", () => "You are authenticated")
-   .RequireAuthorization();
-
-app.MapPost("/auth/login", async (
-    UserManager<AppUser> userManager,
-    ITokenService tokenService,
-    HttpResponse response,
-    string email,
-    string password) =>
-{
-    var user = await userManager.FindByEmailAsync(email);
-    if (user == null) return Results.Unauthorized();
-
-    var valid = await userManager.CheckPasswordAsync(user, password);
-    if (!valid) return Results.Unauthorized();
-
-    var roles = await userManager.GetRolesAsync(user);
-
-    var authUser = new AuthUser
-    {
-        Id = user.Id,
-        Email = user.Email!,
-        FullName = user.FullName
-    };
-    var accessToken = await tokenService.CreateAccessToken(authUser, roles);
-    var refreshToken = tokenService.CreateRefreshToken();
-
-    // Set cookie
-    response.Cookies.Append("refreshToken", refreshToken, new CookieOptions
-    {
-        HttpOnly = true,
-        Secure = true,
-        SameSite = SameSiteMode.Strict,
-        Expires = DateTime.UtcNow.AddDays(7)
-    });
-
-    return Results.Ok(new { accessToken });
-});
 
 app.Run();
