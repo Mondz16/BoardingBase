@@ -9,18 +9,24 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="9.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Scalar.AspNetCore" Version="2.13.14" />
-    <PackageReference Include="StackExchange.Redis" Version="2.12.4" />
+    <PackageReference Include="StackExchange.Redis" Version="2.12.8" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BoardingBase.Application\BoardingBase.Application.csproj" />
     <ProjectReference Include="..\BoardingBase.Infrastructure\BoardingBase.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Enpoints/" />
   </ItemGroup>
 
 </Project>

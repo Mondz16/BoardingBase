@@ -4,3 +4,16 @@ GET {{BoardingBase.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+POST {{BoardingBase.Api_HostAddress}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "test3@gmail.com",
+    "password": "Test12345678"
+}
+
+###
+GET {{BoardingBase.Api_HostAddress}}/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMTlkM2M2YS05NDY3LTczOTMtODVhOC0yZWY4MTc0MmVjNzYiLCJlbWFpbCI6InRlc3QzQGdtYWlsLmNvbSIsImZ1bGxOYW1lIjoiVGVzdDMgQWNjb3VudCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkxhbmRsb3JkIiwiZXhwIjoxNzc0ODM2NzI3LCJpc3MiOiJCb2FyZGluZ0Jhc2UiLCJhdWQiOiJCb2FyZGluZ0Jhc2VVc2VycyJ9.76uCarD_yERNTPwYqQ_aJlM15zVqD_Z2EKlCvpIXXHA
+Accept: application/json
